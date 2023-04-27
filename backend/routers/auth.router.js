@@ -16,11 +16,18 @@ router.post("/register", async(req,res)=> {
         user._id = uuidv4();
         user.createdDate = new Date();
         user.isAdmin = false;
-        
+
+        const checkUserEmail = await User.findOne({email: user.email});
+
+        if(checkUserEmail != null){
+            res.status(403).json({message : "Bu mail adresi daha önce kullanılmıştır!"});
+        }
+        else{
         await user.save();
         const token = jwt.sign({},secretKey,);
         let model = {token: token, user: user};
         res.json(model);
+          }
 
 
     } catch (error){
