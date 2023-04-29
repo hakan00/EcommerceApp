@@ -1,12 +1,21 @@
-import { enableProdMode } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { BrowserModule, bootstrapApplication  } from "@angular/platform-browser";
+import { AppComponent } from "./app/app.component";
+import { importProvidersFrom } from "@angular/core"
+import { CommonModule } from "@angular/common";
+import { RouterModule } from "@angular/router";
 
-import { AppModule } from './app/app.module';
-import { environment } from './environments/environment';
 
-if (environment.production) {
-  enableProdMode();
+bootstrapApplication(AppComponent,{
+  providers: [
+    provideHttpClient() ,
+    importProvidersFrom(
+      BrowserModule,
+      CommonModule,
+      RouterModule.forRoot([]),
+    )
+  ]
+})
+function provideHttpClient(): import("@angular/core").Provider | import("@angular/core").ImportedNgModuleProviders {
+  throw new Error("Function not implemented.");
 }
 
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));
