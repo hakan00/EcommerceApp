@@ -1,19 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Component  } from '@angular/core';
+import { SharedModule } from 'src/app/common/shared/shared.module';
 
 @Component({
   selector: 'app-layouts',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [SharedModule],
   templateUrl: './layouts.component.html',
   styleUrls: ['./layouts.component.scss']
 })
-export class LayoutsComponent implements OnInit {
+export class LayoutsComponent  {
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

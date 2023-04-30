@@ -1,18 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { SharedModule } from 'src/app/common/shared/shared.module';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule],
+  imports: [SharedModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent  {
 
-  constructor() { }
-
-  ngOnInit(): void {
+  login(form:NgForm){
+    if(form.valid){
+    console.log(form.value);
+    }
   }
 
 }
