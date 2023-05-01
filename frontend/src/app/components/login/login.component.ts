@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { SharedModule } from 'src/app/common/shared/shared.module';
 
 @Component({
@@ -10,6 +11,12 @@ import { SharedModule } from 'src/app/common/shared/shared.module';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent  {
+
+  constructor(
+    private _toastr: ToastrService
+  ){
+    this._toastr.success("Toastr Works");
+  }
 
   login(form:NgForm){
     if(form.valid){
