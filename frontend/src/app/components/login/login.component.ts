@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { SharedModule } from 'src/app/common/shared/shared.module';
 
@@ -13,9 +14,14 @@ import { SharedModule } from 'src/app/common/shared/shared.module';
 export class LoginComponent  {
 
   constructor(
-    private _toastr: ToastrService
+    private _toastr: ToastrService,
+    private _spinner: NgxSpinnerService
   ){
+    this._spinner.show();
     this._toastr.success("Toastr Works");
+    setTimeout(()=>{
+      this._spinner.hide();
+    }, 5000)
   }
 
   login(form:NgForm){

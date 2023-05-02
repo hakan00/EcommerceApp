@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 import { ToastrModule } from "ngx-toastr";
 import { routes } from "./app/router";
 import { AppComponent } from "./app/app.component";
+import { NgxSpinnerModule } from "ngx-spinner";
 
 
 
@@ -18,6 +19,7 @@ bootstrapApplication(AppComponent,{
       BrowserModule,
       CommonModule,
       BrowserAnimationsModule,
+      NgxSpinnerModule,
       ToastrModule.forRoot({
         closeButton: true,
         progressBar: true
