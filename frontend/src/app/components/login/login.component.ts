@@ -21,7 +21,7 @@ export class LoginComponent  {
     this._toastr.success("Toastr Works");
     setTimeout(()=>{
       this._spinner.hide();
-    }, 5000)
+    }, 1000)
   }
 
   login(form:NgForm){
