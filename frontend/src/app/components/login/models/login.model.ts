@@ -1,4 +1,5 @@
-export class loginModel{
-  token: string = "";
-  user: 
+export class LoginModel{
+  email: string = "";
+  password: string = "";
+
 }
